@@ -7,12 +7,12 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 ## Schedule
 
 Class:
-- Monday - Friday - 8:30am to 4:30pm
+- Monday - Friday: 8:30am to 4:30pm
 
 Breaks:
-- Morning: 10:15am - 10:30am
-- Lunch: Noon - 1pm
-- Afternoon: 2:45pm - 3:00pm
+- Morning: 10:15am to 10:30am
+- Lunch: Noon to 1pm
+- Afternoon: 2:45pm to 3:00pm
 
 ## Course Outline
 
@@ -49,7 +49,7 @@ Step 2. Download this repository from [here](https://github.com/training4develop
 
 Step 3. Open a terminal window, change to the folder where you extracted the zip file. You should see a **package.json** file in the folder.
 
-On Windows, the terminal is called "Node.js Command Prompt". This will command prompt will contain the proper paths for Node.js development. DO NOT RUN the Node.js program. Click the icon named "Node.js Command Prompt". For Mac users, the Mac terminal is all you need.
+On Windows, the terminal is called "Node.js Command Prompt". This will command prompt will contain the proper paths for Node.js development. DO NOT RUN the Node.js program. Click the icon named "Node.js Command Prompt". For Mac users, the standard Mac terminal is all you need.
 
 Step 4. From the terminal, run the following command:
 
@@ -58,6 +58,16 @@ $ npm i && npm start
 ```
 
 It could take a few minutes for this command to complete. If you have connection issues due to a proxy server, please edit the **.npmrc** and **.typingsrc** files per the instructions in those files. Then re-run the command above.
+
+This set has been completed successfully when you receive the following message:
+
+```bash
+web server running on port 3000
+please do not close this terminal window
+please use a new terminal window to run additional commands
+```
+
+This terminal window is now running the web server, a second terminal window will need to be opened to run additional terminal commands.
 
 Step 5. Open a web browser, and navigate to [http://localhost:3000](http://localhost:3000).  The Angular 2 web application should load and be usable.
 

@@ -1,16 +1,53 @@
-# Angular 2 Widgets Sample Application
+# Welcome to Comprehensive Angular 2!
 
-## Overview
+## Instructor
 
-This is a simple CRUD (create, read, update & delete) application demonstrating the essentials of Angular 2 including HTTP services, routing, forms, composing components and unit testing. The base project configuration is adapted from the [Angular 2 Webpack Stater project](https://angular.io/docs/ts/latest/guide/webpack.html).
+Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.com/in/ericwgreene)
 
-## Application Setup
+## Schedule
+
+Class:
+- Monday - Friday - 8:30am to 4:30pm
+
+Breaks:
+- Morning: 10:15am - 10:30am
+- Lunch: Noon - 1pm
+- Afternoon: 2:45pm - 3:00pm
+
+## Course Outline
+
+	TypeScript & JavaScript topics will be included as needed into the Angular 2 content
+
+- Day 1 - Introduction to Components, Pipes, Event Handling, Directives & Routing
+- Day 2 - Form Validation, Custom Validators, Custom Pipes, Service Injection
+- Day 3 - Http Service & REST Services, Observables/Promises, Web Sockets, Advanced Routing
+- Day 4 - Composing Components, Structural and Attribute Directives, Unit Testing
+- Day 5 - Project Day
+
+## Links
+
+### Instructor's Resources
+
+- [Eric's Blog](http://t4d.io/)
+- [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: GREENE-2016
+- [React Blog Posts](https://github.com/training4developers/react-flux-blog)
+- [TopTal Angular Directive](https://www.toptal.com/angular-js/angular-js-demystifying-directives)
+- [React SitePoint](http://www.sitepoint.com/author/ericgreene/)
+- [JavaScript Blog Posts](https://www.accelebrate.com/blog/?s=Greene)
+
+### Other Resources
+
+- [Accelebrate's Blog](https://www.accelebrate.com/blog/)
+- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
+- [JavaScript Air Podcast](http://javascriptair.podbean.com/)
+
+## Setup Instructions
 
 Step 1. Install Node.js version 6 or higher. To install Node.js click [here](https://nodejs.org).
 
-Step 2. Download this repository from [here](https://github.com/training4developers/ng2-widgets-app/archive/master.zip). Extract the zip file to a working on your system.
+Step 2. Download this repository from [here](https://github.com/training4developers/ng2-widgets-app/archive/master.zip). Extract the zip file to a working folder on your system.
 
-Step 3. Open a terminal window, change to the folder where you extracted the zip file to. You should see a **package.json** file in the folder.
+Step 3. Open a terminal window, change to the folder where you extracted the zip file. You should see a **package.json** file in the folder.
 
 On Windows, the terminal is called "Node.js Command Prompt". This will command prompt will contain the proper paths for Node.js development. DO NOT RUN the Node.js program. Click the icon named "Node.js Command Prompt". For Mac users, the Mac terminal is all you need.
 

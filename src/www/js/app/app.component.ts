@@ -6,8 +6,14 @@ import { Car } from '../cars/shared/car';
   selector: 'widgets-app',
   template: `<h1>{{message}}</h1>
   <input type="text" [(ngModel)]="message">
+  <form>
+    <label>
+      Color Filter:
+      <input type="text" [(ngModel)]="colorFilter" name="colorFilter">
+    </label>
+  </form>
   <ul>
-    <li *ngFor="let color of colors">{{color}}</li>
+    <li *ngFor="let color of sortedColors">{{color}}</li>
   </ul>
   <form novalidate>
     <label>New Color: <input type="text"
@@ -42,28 +48,28 @@ import { Car } from '../cars/shared/car';
     <div>
       <label>
         Car Make:
-        <input type="text" [(ngModel)]="newCarMake" name="newCarMake">
+        <input type="text" [(ngModel)]="newCar.make" name="newCarMake">
       </label>
     </div>
 
     <div>
       <label>
         Car Model:
-        <input type="text" [(ngModel)]="newCarModel" name="newCarModel">
+        <input type="text" [(ngModel)]="newCar.model" name="newCarModel">
       </label>
     </div>
 
     <div>
       <label>
         Car Year:
-        <input type="text" [(ngModel)]="newCarYear" name="newCarYear">
+        <input type="text" [(ngModel)]="newCar.year" name="newCarYear">
       </label>
     </div>
     
     <div>
       <label>
         Car Color:
-        <input type="text" [(ngModel)]="newCarColor" name="newCarColor">
+        <input type="text" [(ngModel)]="newCar.color" name="newCarColor">
       </label>
     </div>
 
@@ -75,6 +81,32 @@ export class AppComponent implements OnInit {
 
   colors: string[] = ['red','white','blue','green'];
   newColor: string;
+  colorFilter: string = '';
+
+  lastColorList = null;
+  colorFilterCache = {};
+
+  get sortedColors(): string[] {
+
+    if (this.lastColorList !== this.colors) {
+      this.lastColorList = this.colors.sort();
+      this.colorFilterCache = {};
+
+      console.log('running sort');
+    }
+
+    if (this.colorFilterCache[this.colorFilter]) {
+      console.log('using cached list');
+      return this.colorFilterCache[this.colorFilter];
+    }
+
+    console.log('running filter');
+    return this.colorFilterCache[this.colorFilter] = this.colors.filter(color =>
+      this.colorFilter.length === 0 || color.startsWith(this.colorFilter));
+  }
+
+  // something.sort((a,b) => a.year > b.year ? 0 : 1);
+
 
   countries: Object[] = [
     { code: 'US', name: 'United States of America' },
@@ -93,34 +125,27 @@ export class AppComponent implements OnInit {
   ]
 
   addColor(): void {
-    this.colors.push(this.newColor);
+    this.colors = this.colors.concat(this.newColor);
     this.newColor = '';
   }
 
-  newCarMake: string;
-  newCarModel: string;
-  newCarYear: number;
-  newCarColor: string;
+  newCar: Object = { };
 
   ngOnInit() {
     this.initNewCar();
   }
 
   initNewCar() {
-    this.newCarMake = '';
-    this.newCarModel = '';
-    this.newCarYear =  (new Date()).getFullYear();
-    this.newCarColor = '';
+    this.newCar = {
+      make: '',
+      model: '',
+      year: (new Date()).getFullYear(),
+      color: ''
+    };
   }
 
   addCar(): void {
-    this.cars.push({
-      make: this.newCarMake,
-      model: this.newCarModel,
-      year: this.newCarYear,
-      color: this.newCarColor
-    });
-
+    this.cars.push(<Car>this.newCar);
     this.initNewCar();
   }
 

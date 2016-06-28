@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'widgets-app',
+  template: `{{today | date:'short'}}<br>
+  {{today | date:'medium'}}<br>
+  {{today | date:'longDate'}}<br>
+  {{today | date:'mediumTime'}}<br>
+  {{today | date:'G'}}<br>
+  {{score | number:'2.0-1'}}<br>
+  {{amount | currency:'USD':false:'1.2'}}<br>
+  {{colors | slice:1:3 | json}}`
+})
+export class AppComponent {
+
+  today: Date = new Date();
+  score: number = 9.76;
+  amount: number = 45.67;
+
+  colors: string[] = ['red','white','blue','green'];
+
+}

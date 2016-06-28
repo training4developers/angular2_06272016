@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+
+import { CarData } from '../cars/shared/car-data.service';
+
+@Component({
+  selector: 'widgets-app',
+  template: `<h1>Car Manager</h1>
+  <router-outlet></router-outlet>`,
+  directives: [ ROUTER_DIRECTIVES ],
+  providers: [ CarData ]
+})
+export class AppComponent {
+
+}

@@ -1,0 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+//import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+
+@Component({
+  selector: 'widgets-app',
+  template: `<select [(ngModel)]="selectedCountry" name="selectedCountry">
+  <option value="">Select One...</option>
+  <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+  </select>
+
+  <div>
+    <input type="text" [(ngModel)]="displayValue">
+  </div>
+
+  <div [ngStyle]="{display: displayValue}">
+  	Text 1
+  </div>
+  <div [ngStyle]="{display: displayValue}">
+    Text 2
+  </div>
+
+  <style>
+    .hide-me {
+      display:none;
+    }
+  </style>
+
+  <div [ngClass]="{'hide-me': hideMe}">
+   Can you see me?
+  </div>
+  <input type="checkbox" [(ngModel)]="hideMe">
+  
+  
+  <div>Selected Country: {{selectedCountry}}</div>
+
+  <div [ngSwitch]="selectedCountry">
+    <template [ngSwitchCase]="US"><div>United States of America</div></template>
+    <div *ngSwitchCase="UK">United Kingdom of Great Britain and Northern Ireland</div>
+    <div *ngSwitchDefault>Select One..</div>
+  </div>
+  
+  `
+  //,directives: [NgSwitch, NgSwitchCase, NgSwitchDefault]
+})
+export class AppComponent {
+
+  selectedCountry: string = 'US';
+
+  countries: Object[] = [
+    { code: 'US', name: 'United States of America' },
+    { code: 'UK', name: 'United Kingdom' },
+    { code: 'IN', name: 'India' },
+    { code: 'GC', name: 'Greece' },
+    { code: 'CA', name: 'Canada' }
+  ];
+
+
+}

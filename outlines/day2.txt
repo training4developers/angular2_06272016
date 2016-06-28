@@ -1,0 +1,8 @@
+1. Create a service to hold car data
+2. Setup routing
+3. Other Directives: ngIf, ngClass, ngStyle
+4. Filters: uppercase, lowercase, date, json, decimal, currency
+5. Custom Filters
+6. Forms
+7. Custom Validator
+8. Service Injection

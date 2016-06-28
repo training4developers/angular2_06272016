@@ -1,0 +1,27 @@
+import { Component, Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'myUpperCase', pure: false })
+export class MyUpperCasePipe implements PipeTransform {
+
+  transform(value: string) {
+
+    console.log('my upper case ran');
+
+
+    return value.toUpperCase();
+  }
+
+}
+
+@Component({
+  selector: 'widgets-app',
+  template: `{{message | myUpperCase}}<br>
+  <input type="text" [(ngModel)]="message"><br>
+  {{message2}}<br>
+  <input type="text" [(ngModel)]="message2">`,
+  pipes: [ MyUpperCasePipe ]
+})
+export class AppComponent {
+  message: string = 'Go Angular 2!';
+  message2: string = 'Go React 15!';
+}

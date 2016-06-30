@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>Angular 2 With Webpack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <widgets-app>Loading...</widgets-app>
+    <script>
+
+      const youngMan = new Promise(function youngLady(resolve, reject) {
+
+        setTimeout(function() {
+          console.log('yes, I will marry you...');
+          //console.log('I am not marrying you...')
+          resolve('because my parents are making me...');
+          //reject('because I am in love with your best friend...');
+        }, 2000);
+
+      });
+
+      youngMan.then(function(results) {
+        console.log(results);
+        console.log('yes I am getting married!!!!');
+        //throw 'I am super nervous and scared...';
+
+        //return "Went to the store, picked it out";
+        return new Promise(function(resolve, reject) {
+
+          setTimeout(function() { resolve('picked the tux'); }, 3000)
+
+        });
+
+      }).then(function(results) {
+
+        console.log(results);
+
+        console.log('got a tux');
+
+
+      }).catch(function(results) {
+        console.log(results);
+        console.log('no, I am not getting married!!!!');
+        console.log('sign up with eHarmony...');
+      });
+
+      console.log("Young man is waiting...");
+
+
+    </script>
+  </body>
+</html>

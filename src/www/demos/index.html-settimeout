@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>Angular 2 With Webpack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <widgets-app>Loading...</widgets-app>
+    <script>
+
+          
+
+      function doFunc() {
+
+      //try {
+
+          const message = "Bob Martin";
+
+          console.log('starting');
+          setTimeout(function myFunc() {
+        console.log('timeout expired');
+        console.log('in timeout fn: ' + message);
+      }  , 1000);
+          //throw 'will I be caught?';
+          console.log('waiting');
+
+      // } catch(err) {
+      //   console.log('here is my catch block');
+      //   console.log(err);
+      // }
+
+      }
+
+      doFunc();
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+import { Component, Injectable, Inject, OpaqueToken, OnInit, provide } from '@angular/core';
+
+
+const mySvcToken = new OpaqueToken('mysvc');
+
+interface MySvc {
+  doIt();
+}
+
+
+@Injectable()
+export class A implements MySvc {
+
+  constructor() {
+    console.log('A constructor executed');
+  }
+
+  doIt() {
+    console.log('did A');
+  }
+}
+
+@Injectable()
+export class B implements MySvc {
+  doIt() {
+    console.log('did B');
+  }
+}
+
+const C: MySvc = {
+  doIt: function() {
+    console.log('did C');
+  }
+}
+
+function bFactory() {
+  return new A();
+}
+
+@Component({
+  selector: 'widgets-app',
+  template: `Hi!`,
+  //providers: [ A ]
+  //providers: [ { provide: A, useClass: A }, { provide: B, useExisting: A } ]
+  //providers: [ { provide: A, useClass: A }, { provide: B, useValue: C } ]
+  //providers: [ { provide: A, useClass: A }, { provide: B, useFactory: bFactory  } ]
+  providers: [ { provide: A, useClass: A }, { provide: mySvcToken, useValue: C  } ]
+  //providers: [ provide(A, { useClass: A })]
+})
+export class AppComponent implements OnInit {
+
+  constructor(
+    private aSvc: A,
+    @Inject(mySvcToken) private mySvc: MySvc
+  ) { }
+
+  ngOnInit() {
+    this.aSvc.doIt();
+    this.mySvc.doIt();
+  }
+
+
+
+}

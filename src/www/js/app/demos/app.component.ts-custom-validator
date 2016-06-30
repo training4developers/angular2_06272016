@@ -1,0 +1,36 @@
+import { Component, Directive, provide } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
+
+function MyRequiredValidator(c: FormControl) {
+
+  if (c.value == null || String(c.value).length === 0) {
+    return { "my-required": false };
+  }
+  return null;
+
+}
+
+@Directive({
+  selector: '[myRequired][ngModel]',
+  providers: [
+    provide(NG_VALIDATORS, {
+      useValue: MyRequiredValidator,
+      multi: true
+    }) ]
+})
+export class MyRequiredDirective { }
+
+declare var require;
+
+@Component({
+  selector: 'widgets-app',
+  template: require('./app.component.html'),
+  styles: [require('./app.component.scss')],
+  directives: [ MyRequiredDirective ]
+})
+export class AppComponent {
+
+  person: Object = {};
+
+}
+
